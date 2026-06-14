@@ -1,0 +1,46 @@
+Deployment Instructions
+
+1. Create an Amazon S3 bucket.
+
+Bucket Name:
+fahim-bis202-object-detection
+
+2. Create two folders:
+
+* incoming-images
+* results
+
+3. Create IAM Role:
+
+* AWSLambdaBasicExecutionRole
+* AmazonS3FullAccess
+
+4. Create AWS Lambda Function:
+
+Runtime: Python 3.12
+
+5. Upload lambda_function.py
+
+6. Create API Gateway:
+
+Method: POST
+
+Route:
+/detect
+
+7. Connect API Gateway to AWS Lambda.
+
+8. Deploy API Gateway stage:
+
+prod
+
+9. Test using:
+
+{
+"bucket": "fahim-bis202-object-detection",
+"image": "dog.jpg"
+}
+
+Expected Result:
+
+A JSON output file is created in the results folder inside Amazon S3.
